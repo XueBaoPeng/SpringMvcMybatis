@@ -14,9 +14,9 @@
 
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <!-- 这个插件给由MBG生成的Java模型对象增加了equals和hashCode方法 -->
-        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin"/>
         <!-- 这个插件给由MBG生成的Javas添加了java.io.Serializable标记接口。这个插件给实体类增加了serialVersionUID字段。 -->
-        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
         <!-- 该插件给Example类添加方法（实际上是给Criteria内部类）来支持不区分大小写的LIKE搜索 -->
         <!--<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />-->
         <!-- 该插件给实体类添加toString()方法。 -->
@@ -30,11 +30,11 @@
             <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
 
             <!-- 设置为flase,生成注释包含时间时间戳 -->
-            <property name="suppressDate" value="true" />
+            <property name="suppressDate" value="true"/>
             <!-- 用来指定MBG生成的代码中是否包含任何注释
             	设置为false,运行多次插件,不会生成重复的内容
             	在pom.xml插件配置中,配置不重写文件,所以不需要插件生成的注释 -->
-            <property name="suppressAllComments" value="true" />
+            <property name="suppressAllComments" value="true"/>
         </commentGenerator>
 
         <!--数据库连接信息 -->
@@ -70,25 +70,51 @@
 
         <!--对应数据库表名 -->
         <!-- 配置表映射 -->
-        <table tableName="courses" domainObjectName="Course">
-            <property name="constructorBased" value="true" />
-            <property name="ignoreQualifiersAtRuntime" value="true" />
+        <table tableName="courses" domainObjectName="CourseEntity"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+
+            <property name="constructorBased" value="true"/>
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
         </table>
-        <table tableName="students" domainObjectName="Student">
-            <property name="constructorBased" value="true" />
-            <property name="ignoreQualifiersAtRuntime" value="true" />
+        <table tableName="students" domainObjectName="StudentEntity"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="constructorBased" value="true"/>
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
         </table>
-        <table tableName="textbooks" domainObjectName="Textbook">
-            <property name="constructorBased" value="true" />
-            <property name="ignoreQualifiersAtRuntime" value="true" />
+        <table tableName="textbooks" domainObjectName="TextbookEntity"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="constructorBased" value="true"/>
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
         </table>
-        <table tableName="grades" domainObjectName="Grade">
-            <property name="constructorBased" value="true" />
-            <property name="ignoreQualifiersAtRuntime" value="true" />
+        <table tableName="grades" domainObjectName="GradeEntity"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="constructorBased" value="true"/>
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
         </table>
-        <table tableName="student_courses" domainObjectName="StudentCourse">
-            <property name="constructorBased" value="true" />
-            <property name="ignoreQualifiersAtRuntime" value="true" />
+        <table tableName="student_courses" domainObjectName="StudentCourseEntity"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="constructorBased" value="true"/>
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
         </table>
     </context>
 </generatorConfiguration>
