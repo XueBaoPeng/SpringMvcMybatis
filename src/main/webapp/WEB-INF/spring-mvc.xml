@@ -12,11 +12,11 @@
     <mvc:resources location="/images/*" mapping="/images/**"/>
 
     <!-- 默认扫描的包路径 -->
-    <context:component-scan base-package="com.xbp.SpringMybatis"/>
+    <context:component-scan base-package="com.xbp.springmybatis"/>
 
     <!-- 扫描包 spring可以自动去扫描base-pack下面或者子包下面的java文件，如果扫描到有@Component @Controller@Service等这些注解的类，则把这些类注册为bean-->
     <!-- 自动扫描且只扫描@Controller -->
-    <context:component-scan base-package="com.xbp.SpringMybatis" use-default-filters="false">
+    <context:component-scan base-package="com.xbp.springmybatis" use-default-filters="false">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>

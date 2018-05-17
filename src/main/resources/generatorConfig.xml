@@ -53,7 +53,7 @@
         -->
 
         <!--生成的entity 包路径 -->
-        <javaModelGenerator targetPackage="${model.package}" targetProject="${target.project}">
+        <javaModelGenerator targetPackage="${entity.package}" targetProject="${target.project}">
             <property name="enableSubPackages" value="ture"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
