@@ -1,20 +1,20 @@
-package entity;
+package com.xbp.springmybatis.entity;
 
 import java.io.Serializable;
 
-public class StudentCourseKey implements Serializable {
+public class StudentCourseEntityKey implements Serializable {
     private Integer courseId;
 
     private Integer studentId;
 
     private static final long serialVersionUID = 1L;
 
-    public StudentCourseKey(Integer courseId, Integer studentId) {
+    public StudentCourseEntityKey(Integer courseId, Integer studentId) {
         this.courseId = courseId;
         this.studentId = studentId;
     }
 
-    public StudentCourseKey() {
+    public StudentCourseEntityKey() {
         super();
     }
 
@@ -45,7 +45,7 @@ public class StudentCourseKey implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        StudentCourseKey other = (StudentCourseKey) that;
+        StudentCourseEntityKey other = (StudentCourseEntityKey) that;
         return (this.getCourseId() == null ? other.getCourseId() == null : this.getCourseId().equals(other.getCourseId()))
             && (this.getStudentId() == null ? other.getStudentId() == null : this.getStudentId().equals(other.getStudentId()));
     }

@@ -20,8 +20,14 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
-    <!-- 自动扫描 -->
-    <context:component-scan base-package="com.xbp.springmybatis"/>
+
+    <description>Spring公共配置 </description>
+    <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+    <context:component-scan base-package="com.xbp.springmybatis" use-default-filters="true"/>
+    <context:component-scan base-package="com.xbp.springmybatis.service.impl"/>
+    <context:component-scan base-package="com.xbp.springmybatis.service"/>
+    <context:component-scan base-package="com.xbp.springmybatis.dao"/>
+    <context:annotation-config/>
     <!-- 引入配置文件 -->
 
     <bean id="propertyConfigurer"
@@ -49,14 +55,17 @@
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
+        <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置，多个目录用，分隔 -->
+        <property name="typeAliasesPackage" value="com.xbp.springmybatis.entity" />
         <!-- 自动扫描mapping.xml文件 -->
-        <property name="mapperLocations" value="classpath:com/xbp/SpringMybatis/mapping/**.xml"></property>
+        <property name="mapperLocations" value="classpath*:com/xbp/springmybatis/dao/mapper/**.xml"></property>
     </bean>
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.cn.hnust.dao" />
-        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="annotationClass" value="org.springframework.stereotype.Repository"/>
+        <property name="basePackage" value="com.xbp.springmybatis.dao" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 
     <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->

@@ -21,6 +21,8 @@
         <!--<plugin type="org.mybatis.generator.plugins.CaseInsensitiveLikePlugin" />-->
         <!-- 该插件给实体类添加toString()方法。 -->
         <!--<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />-->
+        <!--自定义生成mybatis 分页插件-->
+        <!--<plugin type="com.xbp.springmybatis.common.MySQLPagePlugin"/>-->
         <commentGenerator>
             <!-- 生成的Java文件的编码 -->
             <property name="javaFileEncoding" value="UTF-8"/>
@@ -70,6 +72,7 @@
 
         <!--对应数据库表名 -->
         <!-- 配置表映射 -->
+        <!-- enableSelectByExample不为true就不能生成分页的示例 -->
         <table tableName="courses" domainObjectName="CourseEntity"
                enableCountByExample="false"
                enableUpdateByExample="false"
@@ -108,6 +111,16 @@
             <property name="ignoreQualifiersAtRuntime" value="true"/>
         </table>
         <table tableName="student_courses" domainObjectName="StudentCourseEntity"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="constructorBased" value="true"/>
+            <property name="ignoreQualifiersAtRuntime" value="true"/>
+        </table>
+
+        <table tableName="user_t" domainObjectName="UserEntity"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

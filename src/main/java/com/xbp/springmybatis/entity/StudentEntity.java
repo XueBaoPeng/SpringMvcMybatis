@@ -1,20 +1,20 @@
-package entity;
+package com.xbp.springmybatis.entity;
 
 import java.io.Serializable;
 
-public class Student implements Serializable {
+public class StudentEntity implements Serializable {
     private Integer id;
 
     private String name;
 
     private static final long serialVersionUID = 1L;
 
-    public Student(Integer id, String name) {
+    public StudentEntity(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public Student() {
+    public StudentEntity() {
         super();
     }
 
@@ -45,7 +45,7 @@ public class Student implements Serializable {
         if (getClass() != that.getClass()) {
             return false;
         }
-        Student other = (Student) that;
+        StudentEntity other = (StudentEntity) that;
         return (this.getId() == null ? other.getId() == null : this.getId().equals(other.getId()))
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()));
     }
