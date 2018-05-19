@@ -1,18 +1,15 @@
-package com.xbp.springmybatis.controller;
+package com.xbp.springmybatis.web;
 
 import com.xbp.springmybatis.entity.UserEntity;
-import com.xbp.springmybatis.service.UserService;
+import com.xbp.springmybatis.service.impl.UserServiceImpl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 
 /**
  * @des:
@@ -28,15 +25,8 @@ public class UserController {
 
     private static final Log logger = LogFactory.getLog(UserController.class);
 
-    @Autowired
-    private UserService userService;
-
-
-    @RequestMapping("/getUser")
-    public UserEntity getUser(HttpServletRequest request, Model model) {
-        UserEntity user = userService.getUserById(1);
-        return user;
-    }
+    @Resource
+    UserServiceImpl userService;
 
 }
 
