@@ -3,7 +3,6 @@ package com.xbp.springmybatis.dao;
 import com.xbp.springmybatis.entity.TextbookEntity;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
 public interface TextbookEntityMapper {
     int deleteByPrimaryKey(Integer id);

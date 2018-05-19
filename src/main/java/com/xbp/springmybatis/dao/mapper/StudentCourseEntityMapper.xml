@@ -1,104 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xbp.springmybatis.dao.StudentCourseEntityMapper">
-  <resultMap id="BaseResultMap" type="com.xbp.springmybatis.entity.StudentCourseEntityKey">
-    <constructor>
-      <idArg column="course_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <idArg column="student_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xbp.springmybatis.dao.StudentCourseEntityMapper" >
+  <resultMap id="BaseResultMap" type="com.xbp.springmybatis.entity.StudentCourseEntityKey" >
+    <constructor >
+      <idArg column="course_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <idArg column="student_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
     </constructor>
   </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey">
+  <delete id="deleteByPrimaryKey" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey" >
     delete from student_courses
     where course_id = #{courseId,jdbcType=INTEGER}
       and student_id = #{studentId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey">
+  <insert id="insert" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey" >
     insert into student_courses (course_id, student_id)
     values (#{courseId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey">
+  <insert id="insertSelective" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey" >
     insert into student_courses
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="courseId != null">
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="courseId != null" >
         course_id,
       </if>
-      <if test="studentId != null">
+      <if test="studentId != null" >
         student_id,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="courseId != null">
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="courseId != null" >
         #{courseId,jdbcType=INTEGER},
       </if>
-      <if test="studentId != null">
-        #{studentId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <resultMap id="BaseResultMap" type="com.xbp.springmybatis.entity.StudentCourseEntityKey">
-    <constructor>
-      <idArg column="course_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <idArg column="student_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-    </constructor>
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey">
-    delete from student_courses
-    where course_id = #{courseId,jdbcType=INTEGER}
-      and student_id = #{studentId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey">
-    insert into student_courses (course_id, student_id)
-    values (#{courseId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey">
-    insert into student_courses
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="courseId != null">
-        course_id,
-      </if>
-      <if test="studentId != null">
-        student_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="courseId != null">
-        #{courseId,jdbcType=INTEGER},
-      </if>
-      <if test="studentId != null">
-        #{studentId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <resultMap id="BaseResultMap" type="com.xbp.springmybatis.entity.StudentCourseEntityKey">
-    <constructor>
-      <idArg column="course_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <idArg column="student_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-    </constructor>
-  </resultMap>
-  <delete id="deleteByPrimaryKey" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey">
-    delete from student_courses
-    where course_id = #{courseId,jdbcType=INTEGER}
-      and student_id = #{studentId,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey">
-    insert into student_courses (course_id, student_id)
-    values (#{courseId,jdbcType=INTEGER}, #{studentId,jdbcType=INTEGER})
-  </insert>
-  <insert id="insertSelective" parameterType="com.xbp.springmybatis.entity.StudentCourseEntityKey">
-    insert into student_courses
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="courseId != null">
-        course_id,
-      </if>
-      <if test="studentId != null">
-        student_id,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="courseId != null">
-        #{courseId,jdbcType=INTEGER},
-      </if>
-      <if test="studentId != null">
+      <if test="studentId != null" >
         #{studentId,jdbcType=INTEGER},
       </if>
     </trim>

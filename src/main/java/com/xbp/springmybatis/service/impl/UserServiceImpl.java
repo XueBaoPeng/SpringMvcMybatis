@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  * @date: 2018/5/17 15:10
  */
 
-@Service("userService")
+@Service()
 public class UserServiceImpl implements UserService {
 
     @Resource

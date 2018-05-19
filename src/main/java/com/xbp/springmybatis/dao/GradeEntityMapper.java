@@ -3,6 +3,7 @@ package com.xbp.springmybatis.dao;
 import com.xbp.springmybatis.entity.GradeEntity;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public interface GradeEntityMapper {
     int deleteByPrimaryKey(Integer id);

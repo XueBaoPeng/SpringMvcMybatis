@@ -36,7 +36,7 @@
         <!-- spring版本号 -->
         <spring.version>4.0.2.RELEASE</spring.version>
         <!-- mybatis版本号 -->
-        <mybatis.version>3.2.6</mybatis.version>
+        <mybatis.version>3.3.0</mybatis.version>
         <!-- log4j日志文件管理包版本 -->
         <slf4j.version>1.7.7</slf4j.version>
         <log4j.version>1.2.17</log4j.version>
@@ -59,6 +59,15 @@
     <build>
         <!--项目相关的所有资源路径列表，例如和项目相关的配置文件、属性文件，这些资源被包含在最终的打包文件里。 -->
         <resources>
+
+            <!--不设置过滤掉代码包下的xml文件,导致运行项目找不到mybatis.xml文件-->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
             <resource>
                 <!--描述了资源的目标路径。该路径相对target/classes目录（例如${project.build.outputDirectory}）。 -->
                 <!--举个例子，如果你想资源在特定的包里(org.apache.maven.messages)，你就必须该元素设置为org/apache/maven/messages。 -->
@@ -74,7 +83,6 @@
                 <filtering>false</filtering>
             </resource>
         </resources>
-
 
         <plugins>
             <plugin>
