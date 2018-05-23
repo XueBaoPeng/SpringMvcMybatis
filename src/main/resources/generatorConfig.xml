@@ -73,54 +73,8 @@
         <!--对应数据库表名 -->
         <!-- 配置表映射 -->
         <!-- enableSelectByExample不为true就不能生成分页的示例 -->
-        <table tableName="courses" domainObjectName="CourseEntity"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
 
-            <property name="constructorBased" value="true"/>
-            <property name="ignoreQualifiersAtRuntime" value="true"/>
-        </table>
-        <table tableName="students" domainObjectName="StudentEntity"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="constructorBased" value="true"/>
-            <property name="ignoreQualifiersAtRuntime" value="true"/>
-        </table>
-        <table tableName="textbooks" domainObjectName="TextbookEntity"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="constructorBased" value="true"/>
-            <property name="ignoreQualifiersAtRuntime" value="true"/>
-        </table>
-        <table tableName="grades" domainObjectName="GradeEntity"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="constructorBased" value="true"/>
-            <property name="ignoreQualifiersAtRuntime" value="true"/>
-        </table>
-        <table tableName="student_courses" domainObjectName="StudentCourseEntity"
-               enableCountByExample="false"
-               enableUpdateByExample="false"
-               enableDeleteByExample="false"
-               enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <property name="constructorBased" value="true"/>
-            <property name="ignoreQualifiersAtRuntime" value="true"/>
-        </table>
-
-        <table tableName="user_t" domainObjectName="UserEntity"
+        <table tableName="ssm_article" domainObjectName="articleDao"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"

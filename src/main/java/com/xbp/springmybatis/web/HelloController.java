@@ -12,13 +12,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 
 @Controller
-@RequestMapping("/hello")
+@RequestMapping("/index")
 public class HelloController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String printHello(ModelMap modelMap) {
-        modelMap.addAttribute("message", "Hello Spring MVC");
-        return "hello";
+        return "/index.html";
     }
 
 }

@@ -1,12 +1,13 @@
 package com.xbp.springmybatis.service.impl;
 
-import com.xbp.springmybatis.dao.UserEntityDao;
-import com.xbp.springmybatis.entity.UserEntity;
+import com.xbp.springmybatis.bean.User;
+import com.xbp.springmybatis.dao.UserDao;
 import com.xbp.springmybatis.service.UserService;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @des:
@@ -14,13 +15,39 @@ import javax.annotation.Resource;
  * @date: 2018/5/17 15:10
  */
 
-@Service()
+@Service("userService")
 public class UserServiceImpl implements UserService {
 
     @Resource
-    UserEntityDao userEntityDao;
+    private UserDao userDao;
 
-    public UserEntity getUserById(int userId) {
-        return this.userEntityDao.selectByPrimaryKey(userId);
+    @Override
+    public User login(User user) {
+        return userDao.login(user);
+    }
+
+    @Override
+    public List<User> findUser(Map<String, Object> map) {
+        return userDao.findUsers(map);
+    }
+
+    @Override
+    public Long getTotalUser(Map<String, Object> map) {
+        return userDao.getTotalUser(map);
+    }
+
+    @Override
+    public int updateUser(User user) {
+        return 0;
+    }
+
+    @Override
+    public int addUser(User user) {
+        return userDao.addUser(user);
+    }
+
+    @Override
+    public int deleteUser(Integer id) {
+        return 0;
     }
 }

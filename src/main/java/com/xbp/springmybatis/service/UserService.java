@@ -1,7 +1,9 @@
 package com.xbp.springmybatis.service;
 
-import com.xbp.springmybatis.entity.UserEntity;
-import org.springframework.stereotype.Service;
+import com.xbp.springmybatis.bean.User;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * @des:
@@ -10,5 +12,39 @@ import org.springframework.stereotype.Service;
  */
 public interface UserService {
 
-    public UserEntity getUserById(int userId);
+    /**
+     * @param user
+     * @return
+     */
+    public User login(User user);
+
+    /**
+     * @param map
+     * @return
+     */
+    public List<User> findUser(Map<String, Object> map);
+
+    /**
+     * @param map
+     * @return
+     */
+    public Long getTotalUser(Map<String, Object> map);
+
+    /**
+     * @param user
+     * @return
+     */
+    public int updateUser(User user);
+
+    /**
+     * @param user
+     * @return
+     */
+    public int addUser(User user);
+
+    /**
+     * @param id
+     * @return
+     */
+    public int deleteUser(Integer id);
 }

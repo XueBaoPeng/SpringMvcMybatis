@@ -33,7 +33,7 @@
         <!-- 配置MyBaties全局配置文件:mybatis-config.xml -->
         <property name="configLocation" value="classpath:mybatis-config.xml" />
         <!-- 自动扫描entity目录, 省掉Configuration.xml里的手工配置，多个目录用，分隔 -->
-        <property name="typeAliasesPackage" value="com.xbp.springmybatis.entity" />
+        <property name="typeAliasesPackage" value="com.xbp.springmybatis.bean" />
        <!-- 扫描sql配置文件:mapper需要的xml文件 -->
         <property name="mapperLocations" value="classpath*:com/xbp/springmybatis/dao/mapper/**.xml"/>
 
@@ -48,5 +48,5 @@
     </bean>
 
     <!-- 扫描dao包下所有使用注解的类型 -->
-    <context:component-scan base-package="com.xbp.springmybatis.dao" />
+  <!--  <context:component-scan base-package="com.xbp.springmybatis.dao" />-->
 </beans>

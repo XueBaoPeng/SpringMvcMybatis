@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/themes/default/easyui.css"/>
+    <link rel="stylesheet" type="text/css" href="css/themes/icon.css"/>
+    <link rel="stylesheet" type="text/css" href="css/common.css"/>
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="js/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="js/jquery.cookie.js"></script>
+    <script src="js/common.js"></script>
+    <title>首页</title>
+    <script type="text/javascript">
+        // checkCookie();
+    </script>
+</head>
+<body class="easyui-layout" id="layout" style="visibility: visible;">
+
+<!--顶部布局-->
+<div region="north" id="header">
+    <img src="img/logo.png" class="logo"/>
+    <div class="top-btns">
+        <span>欢迎您，管理员</span>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-lock'">修改密码</a>
+        <a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-clear'">退出系统</a>
+        <select class="easyui-combobox" data-options="editable:false">
+            <option value="0" selected="selected">中文</option>
+            <option value="1">English</option>
+        </select>
+    </div>
+</div>
+
+<!--菜单布局-->
+<div region="west" split="true" title="导航菜单" id="naver">
+    <div class="easyui-accordion" fit="true" id="navmenu">
+        <div title="文章管理">
+            <ul class="navmenu">
+                <li class="active"><a href="#" data-url="index.html">首页</a></li>
+                <li class="active"><a href="#" data-url="index.html">UEditor</a></li>
+                <li class="active"><a href="#" data-url="index.html">kindEditor(推荐)</a></li>
+            </ul>
+        </div>
+        <div title="图片管理">
+            <ul class="navmenu">
+                <li class="active"><a href="#" data-url="index.html">图片设置</a></li>
+            </ul>
+        </div>
+        <div title="系统管理">
+            <ul class="navmenu">
+                <li class="active"><a href="#" data-url="html/userManage.html">管理员列表</a></li>
+                <li class="active"><a href="javascript:logout()">安全退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!--内容center-->
+<div region="center" id="content">
+    <div class="easyui-tabs" fit="true" id="tt">
+        <div title="首页" iconCls="icon-ok">
+            <div class="easyui-accordion" data-options="fit:true">
+                <div title="待办事项">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div region="south" id="footer">某某后台管理系统 V1.0</div>
+
+<script type="text/javascript">
+    $(function () {
+        //添加新的Tab页
+        $("#navmenu").on("click", "a[data-url]", function (e) {
+            e.preventDefault();
+            var tabTitle = $(this).text();
+            var tabUrl = $(this).data("url");
+
+            if ($("#tt").tabs("exists", tabTitle)) { //判断该Tab页是否已经存在
+                $("#tt").tabs("select", tabTitle);
+            } else {
+                $("#tt").tabs("add", {
+                    title: tabTitle,
+                    href: tabUrl,
+                    closable: true
+                });
+            }
+            $("#navmenu .active").removeClass("active");
+            $(this).parent().addClass("active");
+        });
+
+        //解决闪屏的问题
+        window.setTimeout(function () {
+            $("#layout").css("visibility", "visible");
+        }, 800);
+    });
+
+    function logout() {
+        $.messager
+            .confirm(
+                "系统提示",
+                "您确定要退出系统吗",
+                function (r) {
+                    if (r) {
+                        clearCookie();
+                    }
+                });
+    }
+</script>
+</body>
+</html>
